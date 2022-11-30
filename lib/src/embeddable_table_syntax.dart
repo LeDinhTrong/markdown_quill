@@ -1,5 +1,5 @@
 import 'package:charcode/charcode.dart';
-import 'package:flutter_quill/flutter_quill.dart';
+import 'package:flutter_quill/flutter_quill.dart' as fq;
 import 'package:markdown/markdown.dart';
 
 /// Parses markdown table and saves the table markdown content into the element attributes.
@@ -95,7 +95,7 @@ class EmbeddableTableSyntax extends BlockSyntax {
 }
 
 /// An [Embeddable] table that can used to render a table in quill_editor
-class EmbeddableTable extends BlockEmbed {
+class EmbeddableTable extends fq.BlockEmbed {
   /// [Embeddable] type
   static const tableType = 'x-embed-table';
 
@@ -108,7 +108,7 @@ class EmbeddableTable extends BlockEmbed {
       EmbeddableTable(attributes['data']!);
 
   /// Outputs table markdown to output.
-  static void toMdSyntax(Embed embed, StringSink out) {
+  static void toMdSyntax(fq.Embed embed, StringSink out) {
     out
       ..writeln(embed.value.data)
       ..writeln();
